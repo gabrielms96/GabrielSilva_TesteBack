@@ -18,7 +18,7 @@ public class Principal {
 
     public static void main(String[] args) throws SQLException, ParseException {
         
-        /* Objeto Custumer para os Getters e Setters,
+        /* Objeto Customer para os Getters e Setters,
         Objeto controle para gerar os dados aleatórios para Insert */
         
         CustomerController controle = new CustomerController();
@@ -45,7 +45,7 @@ public class Principal {
             customer.setIs_active(controle.gerarAtivo());
             customer.setVl_total(Double.parseDouble(controle.gerarValor()));
             
-            // Guardando todos os inserts na Batch.
+            // Guardando todos os inserts no Batch.
             
             pstmt.setString(1, customer.getCpf_cnpj());
             pstmt.setString(2, customer.getNm_customer());
@@ -55,7 +55,7 @@ public class Principal {
 
         }
         
-        /* Ao término do Loop executa a Batch, realiza as duas consultas 
+        /* Ao término do Loop executa o Batch, realiza as duas consultas 
         e fecha conexão com o Banco de Dados */
         
         pstmt.executeBatch();
